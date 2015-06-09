@@ -9,6 +9,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,8 +30,17 @@ public class ItemFactoryTest {
     Map<String, List<Item>> taxExemptMap;
 
     @Test
-    public void equalsContract() {
+    public void shouldVerifyEqualsContract() {
         EqualsVerifier.forClass(Object.class).usingGetClass();
+    }
+
+    private void setUpWithData() {
+        taxExemptMap = new HashMap<>();
+        Item item = new LocalItem("Gooli Soda");
+        itemList = new ArrayList<>();
+        itemList.add(item);
+        taxExemptMap.put("food", itemList);
+        itemFactory = new ItemFactory(taxExemptMap);
     }
 
     @Before
@@ -47,4 +58,15 @@ public class ItemFactoryTest {
 
         verify(itemList).add(item);
     }
+
+    @Test
+    public void shouldMakeItemWhichIsNotTaxExempt() {
+        setUpWithData();
+        Item item = itemFactory.makeLocalItem("Not Gooli Soda", 100);
+
+        double actualPrice = item.afterTaxPrice();
+
+        assertEquals(110, actualPrice, 0.005d);
+    }
+
 }
