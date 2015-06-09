@@ -30,4 +30,11 @@ public class LocalItemTest {
         assertEquals(110, actualAmount, 0.005d);
     }
 
+    @Test
+    public void shouldReturnStateAsString() {
+        String actual = localItem.toString();
+
+        assertEquals("Gooli Soda at 110.0", actual);
+    }
+
 }
