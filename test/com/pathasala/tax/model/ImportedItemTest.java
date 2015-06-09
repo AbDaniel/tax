@@ -17,8 +17,8 @@ public class ImportedItemTest {
 
     @Before
     public void setUp() throws Exception {
-        Item item = new Item("Gooli Soda", 100, 10);
-        importedItem = new ImportedItem(item, 5);
+        LocalItem localItem = new LocalItem("Gooli Soda", 100, 10);
+        importedItem = new ImportedItem(localItem, 5);
     }
 
     @Test

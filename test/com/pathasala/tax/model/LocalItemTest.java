@@ -9,13 +9,13 @@ import org.mockito.runners.MockitoJUnitRunner;
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ItemTest {
+public class LocalItemTest {
 
-    Item item;
+    LocalItem localItem;
 
     @Before
     public void setUp() {
-        item = new Item("Gooli Soda", 100, 10);
+        localItem = new LocalItem("Gooli Soda", 100, 10);
     }
 
     @Test
@@ -25,7 +25,7 @@ public class ItemTest {
 
     @Test
     public void shouldComputeAfterTaxAmount() {
-        double actualAmount = item.afterTaxPrice();
+        double actualAmount = localItem.afterTaxPrice();
 
         assertEquals(110, actualAmount, 0.005d);
     }
