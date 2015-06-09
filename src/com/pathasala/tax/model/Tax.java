@@ -1,4 +1,4 @@
-package com.pathasala.tax.strategy;
+package com.pathasala.tax.model;
 
 public class Tax {
 

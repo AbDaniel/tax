@@ -1,15 +1,17 @@
 package com.pathasala.tax.model;
 
-
-import com.pathasala.tax.strategy.Tax;
-
 public class Item {
 
+    String name;
     double price;
-    Tax tax;
 
-    public Item(double price) {
+    public Item(String name, double price) {
+        this.name = name;
         this.price = price;
+    }
+
+    public double afterTaxPrice(Tax tax) {
+        return price + tax.computeTax(price);
     }
 
 }

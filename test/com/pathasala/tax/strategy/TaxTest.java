@@ -1,6 +1,6 @@
 package com.pathasala.tax.strategy;
 
-import nl.jqno.equalsverifier.EqualsVerifier;
+import com.pathasala.tax.model.Tax;
 import org.junit.Before;
 import org.junit.Test;
 
