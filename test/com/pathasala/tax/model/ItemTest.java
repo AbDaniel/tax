@@ -1,6 +1,5 @@
 package com.pathasala.tax.model;
 
-import com.pathasala.tax.strategy.Tax;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +15,7 @@ public class ItemTest {
 
     @Before
     public void setUp() {
-        item = new Item("Gooli Soda", 100);
+        item = new Item("Gooli Soda", 100, 10);
     }
 
     @Test
@@ -26,9 +25,7 @@ public class ItemTest {
 
     @Test
     public void shouldComputeAfterTaxAmount() {
-        Tax tax = new Tax(10);
-
-        double actualAmount = item.afterTaxPrice(tax);
+        double actualAmount = item.afterTaxPrice();
 
         assertEquals(110, actualAmount, 0.005d);
     }
