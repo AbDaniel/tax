@@ -1,5 +1,6 @@
 package com.pathasala.tax.factory;
 
+import com.pathasala.tax.model.ImportedItem;
 import com.pathasala.tax.model.Item;
 import com.pathasala.tax.model.LocalItem;
 
@@ -10,6 +11,7 @@ public class ItemFactory {
 
     public static final int TAX_EXEMPTED_PERCENTAGE = 0;
     public static final int SALES_TAX_PERCENTAGE = 10;
+    public static final int IMPORT_DUTY = 5;
 
     private Map<String, List<Item>> taxExemptMap;
 
@@ -24,6 +26,11 @@ public class ItemFactory {
                 return new LocalItem(name, price, TAX_EXEMPTED_PERCENTAGE);
         }
         return new LocalItem(name, price, SALES_TAX_PERCENTAGE);
+    }
+
+    public Item makeImportedItem(String name, double price) {
+        Item item = makeLocalItem(name, price);
+        return new ImportedItem(item, IMPORT_DUTY);
     }
 
     public void addItemToTaxExemption(String type, Item item) {

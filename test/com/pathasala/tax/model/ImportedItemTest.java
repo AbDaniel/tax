@@ -10,15 +10,15 @@ public class ImportedItemTest {
 
     ImportedItem importedItem;
 
-    @Test
-    public void shouldVerifyEqualsContract() {
-        EqualsVerifier.forClass(ImportedItem.class).usingGetClass();
-    }
-
     @Before
     public void setUp() throws Exception {
         LocalItem localItem = new LocalItem("Gooli Soda", 100, 10);
         importedItem = new ImportedItem(localItem, 5);
+    }
+
+    @Test
+    public void shouldVerifyEqualsContract() {
+        EqualsVerifier.forClass(ImportedItem.class).usingGetClass();
     }
 
     @Test

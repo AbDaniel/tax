@@ -79,4 +79,14 @@ public class ItemFactoryTest {
         assertEquals(100, actualPrice, 0.005d);
     }
 
+    @Test
+    public void shouldMakeItemWhichIsImported() {
+        setUpWithData();
+        Item item = itemFactory.makeImportedItem("Not Gooli Soda", 100);
+
+        double actualPrice = item.afterTaxPrice();
+
+        assertEquals(115.5, actualPrice, 0.005d);
+    }
+
 }

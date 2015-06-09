@@ -2,17 +2,17 @@ package com.pathasala.tax.model;
 
 public class ImportedItem implements Item {
 
-    private final LocalItem localItem;
+    private final Item item;
     private double tax;
 
-    public ImportedItem(LocalItem localItem, double tax) {
-        this.localItem = localItem;
+    public ImportedItem(Item item, double tax) {
+        this.item = item;
         this.tax = tax;
     }
 
     @Override
     public double afterTaxPrice() {
-        return localItem.afterTaxPrice() + (localItem.afterTaxPrice() * tax / 100);
+        return item.afterTaxPrice() + (item.afterTaxPrice() * tax / 100);
     }
 
     @Override
@@ -22,12 +22,12 @@ public class ImportedItem implements Item {
 
         ImportedItem that = (ImportedItem) o;
 
-        return !(localItem != null ? !localItem.equals(that.localItem) : that.localItem != null);
+        return !(item != null ? !item.equals(that.item) : that.item != null);
 
     }
 
     @Override
     public int hashCode() {
-        return localItem != null ? localItem.hashCode() : 0;
+        return item != null ? item.hashCode() : 0;
     }
 }
