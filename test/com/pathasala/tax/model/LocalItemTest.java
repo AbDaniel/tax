@@ -20,7 +20,7 @@ public class LocalItemTest {
 
     @Test
     public void shouldVerifyEqualsContract() {
-        EqualsVerifier.forClass(Object.class).usingGetClass();
+        EqualsVerifier.forClass(LocalItem.class).usingGetClass();
     }
 
     @Test

@@ -11,8 +11,8 @@ public class ImportedItemTest {
     ImportedItem importedItem;
 
     @Test
-    public void equalsContract() {
-        EqualsVerifier.forClass(Object.class).usingGetClass();
+    public void shouldVerifyEqualsContract() {
+        EqualsVerifier.forClass(ImportedItem.class).usingGetClass();
     }
 
     @Before
