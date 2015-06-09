@@ -30,4 +30,9 @@ public class ImportedItem implements Item {
     public int hashCode() {
         return item != null ? item.hashCode() : 0;
     }
+
+    @Override
+    public String toString() {
+        return "Imported " + item.toString();
+    }
 }

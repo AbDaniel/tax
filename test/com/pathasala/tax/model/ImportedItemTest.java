@@ -27,4 +27,11 @@ public class ImportedItemTest {
 
         assertEquals(115.5, actualAmount, 0.005d);
     }
+
+    @Test
+    public void shouldReturnStateAsString() {
+        String actual = importedItem.toString();
+
+        assertEquals("Imported Gooli Soda at 110.0", actual);
+    }
 }
