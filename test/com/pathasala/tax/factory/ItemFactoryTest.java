@@ -69,4 +69,14 @@ public class ItemFactoryTest {
         assertEquals(110, actualPrice, 0.005d);
     }
 
+    @Test
+    public void shouldMakeItemWhichIsTaxExempt() {
+        setUpWithData();
+        Item item = itemFactory.makeLocalItem("Gooli Soda", 100);
+
+        double actualPrice = item.afterTaxPrice();
+
+        assertEquals(100, actualPrice, 0.005d);
+    }
+
 }
